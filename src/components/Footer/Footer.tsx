@@ -102,7 +102,7 @@ export const  Footer = () => (
             </div>
 
             <div className="w-full lg:w-1/6 mt-8 lg:mt-0 lg:mx-4">
-                <h5 className="uppercase tracking-wider font-semibold text-gray-500">We're Social</h5>
+                <h5 className="uppercase tracking-wider font-semibold text-gray-500">Social</h5>
                 <ul className="mt-4 flex">
                     <li>
                         <a href="#" target="_blank" title="">
@@ -136,7 +136,7 @@ export const  Footer = () => (
                     </li>
 
                     <li className="ml-6">
-                        <a href="#" target="_blank" title="">
+                        <a href="#" target="_blank">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
                                  className="fill-current">
                                 <path
