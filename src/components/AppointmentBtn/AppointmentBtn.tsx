@@ -11,7 +11,6 @@ export const AppointmentBtn = () => {
 
     return (
         <button onClick={onAppointment}
-           className="px-8 py-4 bg-teal-500 text-white rounded inline-block mt-8 font-semibold">Book
-            Appointment</button>
+           className="px-8 py-4 bg-teal-500 text-white rounded inline-block mt-8 font-semibold">رزرو وقت</button>
     )
 }

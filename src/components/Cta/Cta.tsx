@@ -9,8 +9,7 @@ export const Cta = () => {
                     562-789-1935
                 </h2>
                 <a href="#appointment"
-                   className="px-8 py-4 bg-white text-blue-600 rounded inline-block font-semibold md:mr-8 mt-4 md:mt-0">Book
-                    Appointment</a>
+                   className="px-8 py-4 bg-white text-blue-600 rounded inline-block font-semibold md:mr-8 mt-4 md:mt-0">رزرو وقت</a>
             </div>
         </section>
     )
