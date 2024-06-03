@@ -12,17 +12,18 @@ export const Hero = () => {
 
                 <div className="lg:w-3/4 xl:w-2/4 relative z-10 h-100 lg:mt-16" id="appintment">
                     <div>
-                        <h1 className="text-white text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">A better life
-                            starts with a
-                            beautiful
-                            smile.</h1>
-                        <p className="text-blue-100 text-xl md:text-2xl leading-snug mt-4">Welcome to the Dentist Office of
-                            Dr. Thomas
-                            Dooley,
-                            where
-                            trust
-                            and comfort are priorities.</p>
-                        <AppointmentBtn />
+                        <h1 className="text-white text-4xl md:text-5xl xl:text-6xl font-bold leading-tight">دکتر رضا
+                            پارسایی</h1>
+
+                        <ul className="mt-12 list-disc text-white">
+                            <li>دکترای پزشکی دانشگاه علوم پزشکی تهران</li>
+                            <li>بورد تخصصی جراحی عمومی دانشگاه علوم پزشکی تهران</li>
+                            <li>فلوشیپ جراحی درون بین( لاپاراسکوپیک) دانشگاه علوم پزشکی تهران</li>
+                            <li>عضو جامعه جراحان ایران</li>
+                            <li>عضو انجمن جراحان درون بین ایران</li>
+                        </ul>
+
+                        <AppointmentBtn/>
                     </div>
                 </div>
             </section>

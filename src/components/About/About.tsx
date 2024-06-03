@@ -1,3 +1,6 @@
+import Image from "next/image";
+import Link from "next/link";
+
 export const About = () => (
     <section className="relative px-4 py-16 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 lg:py-32">
         <div className="flex flex-col lg:flex-row lg:-mx-8">
@@ -46,11 +49,11 @@ export const About = () => (
         <div className="md:flex md:flex-wrap mt-24 text-center md:-mx-4">
             <div className="md:w-1/2 md:px-4 lg:w-1/4">
                 <div className="bg-white rounded-lg border border-gray-300 p-8">
-                    <img src="images/teeth-whitening.svg" alt="" className="h-20 mx-auto"/>
+                    <Image src="/surgery.png" alt="جراحی اسلیوگاسترکتومی" width={80} height={80}
+                           className="mx-auto"/>
 
-                    <h4 className="text-xl font-bold mt-4">Teeth Whitening</h4>
-                    <p className="mt-1">Let us show you how our experience.</p>
-                    <a href="#" className="block mt-4">Read More</a>
+                    <h4 className="text-xl font-bold mt-4">جراحی اسلیوگاسترکتومی</h4>
+                    <Link href="/surgery" className="block mt-4">بیشتر بخوانید</Link>
                 </div>
             </div>
 
