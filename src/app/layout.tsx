@@ -7,7 +7,7 @@ import {Header} from "@/components/Header/Header";
 import {Footer} from "@/components/Footer/Footer";
 
 const yekanFont = localFont({
-    src: './Yekan.ttf',
+    src: './yekan.ttf',
     display: 'swap',
     variable: '--font-yekan'
 })
