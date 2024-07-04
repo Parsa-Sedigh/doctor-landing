@@ -10,19 +10,20 @@ import {
     RadioGroup,
     TextField
 } from "@mui/material";
-import {FormEvent, useState} from "react";
+import {Dispatch, FormEvent, SetStateAction, useState} from "react";
 import {Face, Height, MonitorWeight} from "@mui/icons-material";
+import {Body} from "@/types";
 
 type BmiDialogProps = {
     isOpen: boolean
     onClose: () => void
+    body: Body
+    setBody: Dispatch<SetStateAction<Body>>
+    onSuccessSubmit: () => void
 }
 
-export const BmiDialog = ({isOpen, onClose}: BmiDialogProps) => {
-    const [gender, setGender] = useState<'m' | 'f'>('m')
-    const [weight, setWeight] = useState<number | null>(null)
-    const [age, setAge] = useState<number | null>(null)
-    const [height, setHeight] = useState<number | null>(null)
+export const BmiDialog = ({isOpen, onClose, body, setBody, onSuccessSubmit}: BmiDialogProps) => {
+
     const [errors, setErrors] = useState({
         weight: [] as string[],
         age: [] as string[],
@@ -35,55 +36,33 @@ export const BmiDialog = ({isOpen, onClose}: BmiDialogProps) => {
 
     const onSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log('e: ', e, weight)
+        console.log('e: ', e, body.weight)
 
-        if (!!weight) {
+        if (!!body.weight) {
             setErrors(prev => ({...prev, weight: []}))
         }
 
-        if (!!age) {
+        if (!!body.age) {
             setErrors(prev => ({...prev, age: []}))
         }
 
-        if (!!height) {
+        if (!!body.height) {
             setErrors(prev => ({...prev, height: []}))
         }
 
-        let bmi: number
-
-        if (!weight) {
+        if (!body.weight) {
             setErrors(prev => ({...prev, weight: ['weight err']}))
         }
 
-        if (!age) {
+        if (!body.age) {
             setErrors(prev => ({...prev, age: ['age err']}))
         }
 
-        if (!height) {
+        if (!body.height) {
             setErrors(prev => ({...prev, height: ['height err']}))
         }
 
-        if (!!errors.weight.length || !!errors.age.length || !!errors.height.length ||
-            !weight || !age || !height) {
-            return
-        }
-
-
-        if (gender === 'm') {
-            bmi = weight / (height ^ 2);
-        } else {
-            bmi = 10 * (weight + 6.25) * (height - 5) * (age - 161);
-        }
-
-        if (bmi < 18.5) {
-            console.log('too thin')
-        } else if (bmi > 18.5 && bmi < 25) {
-            console.log('healthy')
-        } else {
-            console.log('too fat')
-        }
-
-        console.log('BMI: ', bmi)
+        onSuccessSubmit()
     }
 
     return (
@@ -94,8 +73,8 @@ export const BmiDialog = ({isOpen, onClose}: BmiDialogProps) => {
                 <form onSubmit={onSubmit} className="flex flex-col gap-4">
                     <FormControl>
                         <RadioGroup
-                            value={gender}
-                            onChange={e => setGender(e.target.value as 'm' | 'f')}
+                            value={body.gender}
+                            onChange={e => setBody(prev => ({...prev, gender: e.target.value as 'm' | 'f'}))}
                             aria-labelledby="calculate-bmi"
                             defaultValue="male"
                             name="radio-buttons-group"
@@ -108,9 +87,9 @@ export const BmiDialog = ({isOpen, onClose}: BmiDialogProps) => {
                     <FormControl>
                         <TextField
                             type="number"
-                            value={weight}
+                            value={body.weight ? body.weight : ''}
                             error={!!errors.weight.length}
-                            onChange={(e) => setWeight(Number(e.target.value))}
+                            onChange={(e) => setBody(prev => ({...prev, weight: Number(e.target.value)}))}
                             label="وزن"
                             inputProps={{
                                 min: 1,
@@ -127,9 +106,9 @@ export const BmiDialog = ({isOpen, onClose}: BmiDialogProps) => {
                     <FormControl>
                         <TextField
                             type="number"
-                            value={age}
+                            value={body.age ? body.age : ''}
                             error={!!errors.age.length}
-                            onChange={(e) => setAge(Number(e.target.value))}
+                            onChange={(e) => setBody(prev => ({...prev, age: Number(e.target.value)}))}
                             label="سن"
                             inputProps={{
                                 min: 0,
@@ -146,9 +125,9 @@ export const BmiDialog = ({isOpen, onClose}: BmiDialogProps) => {
                     <FormControl>
                         <TextField
                             type="number"
-                            value={height}
+                            value={body.height ? body.height : ''}
                             error={!!errors.height.length}
-                            onChange={(e) => setHeight(Number(e.target.value))}
+                            onChange={(e) => setBody(prev => ({...prev, height: Number(e.target.value)}))}
                             label="قد"
                             inputProps={{
                                 min: 1,

@@ -1,5 +1,4 @@
 import {Hero} from "@/components/Hero/Hero";
-import {About} from "@/components/About/About";
 import {Cta} from "@/components/Cta/Cta";
 import {Metadata} from "next";
 import {SpeedDialItems} from "@/components/SpeedDialItems/SpeedDialItems";
@@ -17,7 +16,6 @@ export default function Home() {
 
                 <Hero/>
 
-                <About/>
 
                 {/*<section className="relative bg-gray-100 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 py-16 lg:py-32">*/}
                 {/*  <div className="flex flex-col lg:flex-row lg:-mx-8">*/}

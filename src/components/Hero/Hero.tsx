@@ -1,10 +1,11 @@
 import {AppointmentBtn} from "@/components/AppointmentBtn/AppointmentBtn";
+import {ServiceThumbnail} from "@/components/ServiceThumbnail/ServiceThumbnail";
 
 export const Hero = () => {
 
     return (
-        <div className="bg-gray-100">
-            <section className="cover bg-blue-teal-gradient relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-48 flex
+        <div className="bg-gray-100 mb-[200px]">
+            <section className="cover bg-blue-teal-gradient relative bg-blue-600 px-4 sm:px-8 lg:px-16 xl:px-40 2xl:px-64 overflow-hidden py-20 flex
       items-center min-h-screen">
                 <div className="h-full absolute top-0 right-0 z-0">
                     <img src="images/cover-bg.jpg" alt="" className="w-full h-full object-cover opacity-20"/>
@@ -24,6 +25,14 @@ export const Hero = () => {
                         </ul>
 
                         <AppointmentBtn/>
+                    </div>
+
+                    <div className="md:flex md:flex-wrap mt-24 text-center md:-mx-4">
+                        <div className="md:w-1/2 lg:w-1/4">
+                            <ServiceThumbnail imgPath="/surgery.png"
+                                              link="/surgery"
+                                              title="جراحی اسلیوگاسترکتومی"/>
+                        </div>
                     </div>
                 </div>
             </section>
